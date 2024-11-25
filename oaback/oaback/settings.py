@@ -40,17 +40,34 @@ INSTALLED_APPS = [
 
     # 安装rest_framework
     'rest_framework',
+
+    # 安装跨域访问
+    'corsheaders',
+
+    # 安装自定义auth
+    'apps.oaauth',
+    'apps.absent',
+    'apps.inform',
+    'apps.staff',
+    'apps.image'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+
+    # 添加跨域访问中间件
+    "corsheaders.middleware.CorsMiddleware",
+
     'django.middleware.common.CommonMiddleware',
     # 关闭CSRF保护
     # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # 登录校验中间件
+    'apps.oaauth.middlewares.LoginCheckMiddleware'
 ]
 
 ROOT_URLCONF = 'oaback.urls'
@@ -128,7 +145,26 @@ USE_TZ = False
 
 STATIC_URL = 'static/'
 
+# 媒体文件存放位置
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# 允许所有域名跨域访问
+CORS_ALLOW_ALL_ORIGINS = True
+
+# 覆盖User的模型 app.模型名
+AUTH_USER_MODEL = 'oaauth.OAUser'
+
+# 添加中间件实现登录校验
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ['apps.oaauth.authentications.UserTokenAuthentication'],
+    'DEFAULT_PAGINATION_CLASS' : 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
+
+APPEND_SLASH = False
