@@ -9,13 +9,14 @@ from django.http.response import JsonResponse
 from rest_framework.status import HTTP_403_FORBIDDEN
 from apps.oaauth.models import OAUser
 from django.contrib.auth.models import AnonymousUser
+from django.shortcuts import reverse
 
 class LoginCheckMiddleware(MiddlewareMixin):
     keyword = 'JWT'
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.white_list = ["/auth/login", "/auth/register", "/staff/active" ]
+        self.white_list = [reverse("oaauth:login"),  reverse("staff:active_view") ]
 
 
     def process_view(self, request, view_func, view_args, view_kwargs):
