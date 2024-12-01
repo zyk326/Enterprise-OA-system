@@ -11,6 +11,8 @@ npm install element-plus@2.7.0 --save(安装element-plus)
 npm install @wangeditor @wangeditor/editor-for-vue@5.1.23 --save(wangEditor5 富文本编辑器)  
 npm install echarts@5.5.1 --save(安装前端图表echarts)  
 
+---
+
 **后端：**  
 **PyCharm + Navicat + Another Redis Desktop Manager**
 Python 3.12  
@@ -50,6 +52,8 @@ Email:zyk@barz.com
 Realname:郑友康  
 Password:444444
 
+---
+
 # 部署  
 ### 本地部署  
 **VMWare(CentOS/ubuntu-zykubuntu@me0)**  
@@ -65,8 +69,18 @@ Password:444444
 sudo apt-get install openssh-server(安装ssh服务)  
 sudo service ssh start(启动ssh服务)   
 
-118.31.42.134(公)  
-172.27.86.69(私有)  
+47.120.78.236(公)
+172.22.38.222(私有)
 服务器要把端口打开      
 更新源/etc/apt/sources.list => 清华源   
 apt update更新内容    
+
+### 打包  
+前端:  
+npm run build
+
+后端:  
+添加settings里日志配置   
+修改路由  
+pip install django-environ(配置环境的包)    
+配置uwsgi  
