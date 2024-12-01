@@ -107,6 +107,7 @@ const onSubmit = () => {
       try{
           let data = await informHttp.publishInform(informForm)
           console.log(data)
+          ElMessage.success("发布成功!")
       }catch(detail){
         ElMessage.error(detail)
       }

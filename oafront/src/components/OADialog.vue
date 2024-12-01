@@ -23,7 +23,6 @@ const onCancel = () => {
 }
 
 const onSubmit = () => {
-    console.log("insub")
     FormVisible.value = false
     emits('submit')
     console.log("finish upper")
@@ -31,6 +30,7 @@ const onSubmit = () => {
 
 </script>
 
+<!-- // v-model可以控制子组件显隐 -->
 <template>
   <el-dialog v-model="FormVisible" :title="props.title" :width="props.width">
     <slot></slot>

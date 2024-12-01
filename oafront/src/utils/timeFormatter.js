@@ -24,5 +24,5 @@ const stringFromDateTime = (date) => {
 
 export default {
   stringFromDate: stringFromDate,
-  stringFromDateTime,
+  stringFromDateTime: stringFromDateTime,
 };

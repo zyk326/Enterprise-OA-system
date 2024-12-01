@@ -27,8 +27,12 @@ class Http {
         // console.log(result)
         resolve(result.data);
       } catch (err) {
-        let detail = err.response.data.detail;
-        reject(detail);
+        try{
+          let detail = err.response.data.detail;
+          reject(detail);
+        }catch{
+          reject('服务器错误!')
+        }
       }
     });
   }
@@ -36,7 +40,7 @@ class Http {
   get(path, params) {
     return new Promise(async (resolve, reject) => {
       try {
-        let result = await this.instance.get(path, params);
+        let result = await this.instance.get(path, {params});
         resolve(result.data);
       } catch (err) {
         let detail = err.response.data.detail;
@@ -50,6 +54,33 @@ class Http {
       try {
         let result = await this.instance.put(path, data);
         resolve(result.data);
+      } catch (err) {
+        let detail = err.response.data.detail;
+        reject(detail);
+      }
+    });
+  }
+
+  delete(path){
+    return new Promise(async (resolve, reject) => {
+      try {
+        let result = await this.instance.delete(path);
+        resolve(result);
+      } catch (err) {
+        let detail = err.response.data.detail;
+        reject(detail);
+      }
+    });
+  }
+
+  downloadFile(path, params){
+    return new Promise(async (resolve, reject) => {
+      try {
+        let result = await this.instance.get(path, {
+          params,
+          responseType:'blob'
+        });
+        resolve(result);
       } catch (err) {
         let detail = err.response.data.detail;
         reject(detail);

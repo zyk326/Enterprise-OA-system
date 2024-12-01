@@ -64,7 +64,7 @@ class OAUser(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(auto_now_add=True)
 
-    department = models.ForeignKey('OADepartment', null=True, on_delete=models.SET_NULL, related_name='staffs', related_query_name='staff')
+    department = models.ForeignKey('OADepartment', null=True, on_delete=models.SET_NULL, related_name='staffs', related_query_name='staffs')
 
     objects = OAUserManager()
 
@@ -81,6 +81,10 @@ class OAUser(AbstractBaseUser, PermissionsMixin):
 
     def get_short_name(self):
         return self.realname
+
+    # 指定模型排序
+    # class Meta:
+    #     ordering = ['-data_joined']
 
 class OADepartment(models.Model):
     name = models.CharField(max_length=100)

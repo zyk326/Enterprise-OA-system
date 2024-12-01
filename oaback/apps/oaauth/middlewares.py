@@ -15,7 +15,7 @@ class LoginCheckMiddleware(MiddlewareMixin):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.white_list = ["/auth/login", "/auth/register" ]
+        self.white_list = ["/auth/login", "/auth/register", "/staff/active" ]
 
 
     def process_view(self, request, view_func, view_args, view_kwargs):

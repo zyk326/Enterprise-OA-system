@@ -29,22 +29,6 @@ const onSubmit = async () => {
     return;
   }
 
-  // 封装axios
-  //   authHttp
-  //     .login(form.email, form.password)
-  //     .then((res) => {
-  //       let data = res.data;
-  //       let token = data.token;
-  //       let user = data.user;
-  //       authStore.setUserToken(user, token);
-  //       // 跳转到oa系统的首页
-  //       router.push({ name: "frame" });
-  //     })
-  //     .catch((err) => {
-  //       let detail = err.response.data.detail;
-  //       alert(detail);
-  //     });
-
   // 异步调用
   try {
     let data = await authHttp.login(form.email, form.password);
