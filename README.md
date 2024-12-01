@@ -69,18 +69,19 @@ Password:444444
 sudo apt-get install openssh-server(安装ssh服务)  
 sudo service ssh start(启动ssh服务)   
 
-47.120.78.236(公)
-172.22.38.222(私有)
-服务器要把端口打开      
-更新源/etc/apt/sources.list => 清华源   
-apt update更新内容    
+47.120.78.236(公)  
+172.22.38.222(私有)  
+服务器要把端口打开        
+更新源/etc/apt/sources.list => 清华源     
+apt update更新内容      
+/etc/resolv.conf => nameserver 8.8.8.8  
 
 ### 打包  
 前端:  
 npm run build
 
 后端:  
-添加settings里日志配置   
-修改路由  
-pip install django-environ(配置环境的包)    
+添加settings里日志配置     
+修改路由    
+pip install django-environ(配置环境的包)      
 配置uwsgi  
