@@ -48,3 +48,7 @@ class DepartmentStaffView(APIView):
         rows = OADepartment.objects.annotate(staff_count=Count('staffs')).values("name", "staff_count")
         print('='*10)
         return Response(rows)
+
+class HealthCheckView(APIView):
+    def get(self, request):
+        return Response({"code":"200"})
