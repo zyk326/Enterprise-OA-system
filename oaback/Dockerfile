@@ -8,6 +8,8 @@ RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
 
 RUN pip install uwsgi -i https://pypi.tuna.tsinghua.edu.cn/simple  
 
+RUN pip install --upgrade PyJWT
+
 RUN mkdir -p /data/log
 RUN mkdir -p /data/sock
 

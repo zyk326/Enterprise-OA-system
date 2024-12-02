@@ -16,7 +16,7 @@ class LoginCheckMiddleware(MiddlewareMixin):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.white_list = [reverse("oaauth:login"),  reverse("staff:active_view") ]
+        self.white_list = [reverse("oaauth:login"),  reverse("staff:active_view"), reverse("home:health_check") ]
 
 
     def process_view(self, request, view_func, view_args, view_kwargs):
