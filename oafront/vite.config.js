@@ -7,9 +7,9 @@ import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/assets/',
+  base: '/',
   build: {
-    assetsDir: "oafront"
+    assetsDir: "assets"
   },
   plugins: [
     vue(),
