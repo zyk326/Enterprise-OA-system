@@ -50,7 +50,7 @@ class LoginCheckMiddleware(MiddlewareMixin):
                 except:
                     msg = "用户不存在!"
                     raise exceptions.AuthenticationFailed(msg)
-            except ExpiredSignatureError:
+            except:
                 msg = "JWT Token已过期!"
                 raise exceptions.AuthenticationFailed(msg)
         except Exception as e:

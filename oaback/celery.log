@@ -169,3 +169,6 @@ If you wish to retain the existing behavior for retrying connections on startup,
 you should set broker_connection_retry_on_startup to True.
   warnings.warn(
 
+2024-12-02 02:36:46,348 - celery.worker.consumer.connection - INFO - Connected to redis://localhost:6379/1
+2024-12-02 02:36:46,352 - celery.worker.consumer.mingle - INFO - mingle: searching for neighbors
+2024-12-02 02:36:47,359 - celery.worker.consumer.mingle - INFO - mingle: all alone

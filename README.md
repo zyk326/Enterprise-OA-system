@@ -68,7 +68,12 @@ Password:444444
 ### linux
 sudo apt-get install openssh-server(安装ssh服务)  
 sudo service ssh start(启动ssh服务)   
-
+apt install -y mysql-server-8.0 mysql-client(安装MySQL)  
+apt install redis-server(安装redis)   
+pip install -r requirements.txt(安装python依赖包,最好用虚拟环境)  
+apt install ngnix(安装nginx)   
+pip install uwsgi --ini uwsg.ini(安装uwsgi)   
+ 
 47.120.78.236(公)  
 172.22.38.222(私有)  
 服务器要把端口打开        
@@ -84,4 +89,4 @@ npm run build
 添加settings里日志配置     
 修改路由    
 pip install django-environ(配置环境的包)      
-配置uwsgi  
+配置uwsgi   

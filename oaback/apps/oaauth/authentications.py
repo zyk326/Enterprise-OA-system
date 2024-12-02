@@ -3,7 +3,7 @@ import time
 from django.conf import settings
 from rest_framework.authentication import BaseAuthentication, get_authorization_header
 from rest_framework.exceptions import AuthenticationFailed
-from jwt.exceptions import ExpiredSignatureError
+# from jwt.exceptions import ExpiredSignatureError
 from apps.oaauth.models import OAUser
 
 
@@ -42,6 +42,6 @@ class JWTAuthentication(BaseAuthentication):
             except:
                 msg = "用户不存在!"
                 raise AuthenticationFailed(msg)
-        except ExpiredSignatureError:
+        except:
             msg = "JWT Token已过期!"
             raise AuthenticationFailed(msg)
