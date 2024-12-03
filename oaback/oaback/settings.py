@@ -105,7 +105,7 @@ DATABASES = {
         'NAME': env.str('DB_NAME', 'zykoa'),
         'USER': env.str('DB_USER', 'root'),
         'PASSWORD': env.str('DB_PASSWORD', '444'),
-        'HOST': env.str('DB_HOST', 'localhost'),
+        'HOST': env.str('DB_HOST', 'oadb'),
         'PORT': env.str('DB_PORT', '3306'),
     }
 }
