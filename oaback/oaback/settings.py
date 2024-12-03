@@ -102,7 +102,7 @@ WSGI_APPLICATION = 'oaback.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': env.str('DB_NAME', 'zykoa'),
+        'NAME': env.str('DB_NAME', 'oadb'),
         'USER': env.str('DB_USER', 'root'),
         'PASSWORD': env.str('DB_PASSWORD', '123456'),
         'HOST': env.str('DB_HOST', 'oadb'),
