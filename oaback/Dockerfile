@@ -15,7 +15,8 @@ RUN mkdir -p /data/sock
 
 EXPOSE 8000
 
-ENTRYPOINT python manage.py migrate; \
+ENTRYPOINT python manage.py makemigrations; \ 
+python manage.py migrate; \
 python manage.py initdepartments; \
 python manage.py inituser; \
 python manage.py initabsenttype; \
