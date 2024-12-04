@@ -101,4 +101,8 @@ pip install django-environ(配置环境的包)
 
 # Docker部署
 前端加nginx_oa.conf  
-前端加Dockerfile 
+前端加Dockerfile
+
+后端加Dockerfile
+
+在服务器项目目录下:docker compose up 即可启动（前提需要安装docker compose）
