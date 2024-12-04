@@ -72,7 +72,8 @@ apt install -y mysql-server-8.0 mysql-client(安装MySQL)
 apt install redis-server(安装redis)   
 pip install -r requirements.txt(安装python依赖包,最好用虚拟环境)  
 apt install ngnix(安装nginx)   
-pip install uwsgi --ini uwsg.ini(安装uwsgi)   
+pip install uwsgi --ini uwsg.ini(安装uwsgi)  
+需要在oaback里添加.env文件(加DB_PASSWORD=字段,用以数据库连接)  
  
 47.120.78.236(公)  
 172.22.38.222(私有)  
@@ -89,4 +90,15 @@ npm run build
 添加settings里日志配置     
 修改路由    
 pip install django-environ(配置环境的包)      
-配置uwsgi   
+配置uwsgi 
+
+### 整体过程
+把对应需要的环境,服务都安装完成后,启动步骤应该是如下:  
+1. 运行celery,**celery -A oaback worker -l INFO --detach**, 以后台运行的方式启动celery服务.  
+2. 运行nginx服务,在安装完成后会自动运行,注意nginx的配置文件**/etc/nginx/conf.d/oa.conf**,里面需要有静态文件访问路径和反向代理和日志文件的配置.  
+3. 运行uwsgi,**uwsgi --ini uwsgi.ini**,注意uwsgi的配置文件**/www/oaback/uwsgi.ini**,里面需要有进程数的设置,socket的设置.    
+4. 如果前端页面找不到,就看前端项目打包时的vite.config.js中的路径配置,和nginx的配置文件中的路径配置,并重启nginx服务:**service nginx restart**, 如果后端路由出错,就看前端打包时的.env.production中的路径配置,并重启uwsgi服务:**pkill -f uwsgi -9 | uwsgi --ini uwsgi.ini**.
+
+# Docker部署
+前端加nginx_oa.conf  
+前端加Dockerfile 
